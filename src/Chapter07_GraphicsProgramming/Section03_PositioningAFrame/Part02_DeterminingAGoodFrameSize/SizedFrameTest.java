@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.peer.ComponentPeer;
@@ -24,6 +26,7 @@ public class SizedFrameTest {
 				frame.setTitle("SizedFrame");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
+				
 			}
 		});
 	}
@@ -79,9 +82,8 @@ class SizedFrame extends JFrame{
     }
 	
     public void paint(Graphics g) {
-    	System.out.println("paint");
     	if(!painted){
-    		System.out.print(" image");
+    		System.out.println("paint image");
     		painted = true;
         	Image img = new ImageIcon("bin/Chapter07_GraphicsProgramming/eg/IMG_0743.JPG").getImage();
         	int imageHeight = img.getHeight(null);
@@ -89,7 +91,7 @@ class SizedFrame extends JFrame{
         	System.out.println(imageHeight + ", " + imageWidth);
         	g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
     	}else{
-    		System.out.print(" nothing");
+    		System.out.println("paint nothing");
     	}
     }
     
