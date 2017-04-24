@@ -1,4 +1,4 @@
-package c08_EventHandling.s01_BasicsOfEventHandling.p01_Example_HandlingAButtonClick;
+package vI_c08_EventHandling.s01_BasicsOfEventHandling.p01_Example_HandlingAButtonClick;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

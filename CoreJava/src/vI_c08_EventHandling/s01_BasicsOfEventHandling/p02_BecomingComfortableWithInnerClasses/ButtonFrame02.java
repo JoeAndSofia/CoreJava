@@ -1,4 +1,4 @@
-package c08_EventHandling.s01_BasicsOfEventHandling.p02_BecomingComfortableWithInnerClasses;
+package vI_c08_EventHandling.s01_BasicsOfEventHandling.p02_BecomingComfortableWithInnerClasses;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
