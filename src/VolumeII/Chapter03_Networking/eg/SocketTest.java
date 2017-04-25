@@ -1,4 +1,4 @@
-package VolumeII.Chapter03_Networking.Section01_ConnectingToAServer.eg;
+package VolumeII.Chapter03_Networking.eg;
 
 import java.io.IOException;
 import java.io.InputStream;
