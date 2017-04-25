@@ -42,7 +42,8 @@ class SizedFrame extends JFrame{
 			Dimension screenSize = kit.getScreenSize();
 			int screenHeight = screenSize.height;
 			int screenWidth = screenSize.width;
-			
+			System.out.println(screenHeight);
+			System.out.println(screenWidth);
 			// set frame width, height and let platform pick screen location
 			setSize(screenWidth/2, screenHeight/2);
 			setLocationByPlatform(true);
