@@ -3,7 +3,7 @@ package VolumeI.Chapter05_Inheritance.Section07_Reflection.Part01_TheClassClass;
 import java.util.Date;
 
 import VolumeI.Chapter05_Inheritance.eg.Employee;
-import basic.util.Basic;
+import basic.Basic;
 
 public class Case03_NewInstance extends Basic{
 

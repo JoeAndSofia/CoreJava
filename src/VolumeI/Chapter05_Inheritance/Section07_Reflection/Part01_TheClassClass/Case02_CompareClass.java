@@ -1,7 +1,7 @@
 package VolumeI.Chapter05_Inheritance.Section07_Reflection.Part01_TheClassClass;
 
 import VolumeI.Chapter05_Inheritance.eg.Employee;
-import basic.util.Basic;
+import basic.Basic;
 
 public class Case02_CompareClass extends Basic{
 

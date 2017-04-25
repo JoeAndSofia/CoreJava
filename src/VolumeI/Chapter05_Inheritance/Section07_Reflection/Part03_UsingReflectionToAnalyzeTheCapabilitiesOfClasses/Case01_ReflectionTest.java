@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Scanner;
 
-import basic.util.Basic;
+import basic.Basic;
 
 public class Case01_ReflectionTest extends Basic{
 

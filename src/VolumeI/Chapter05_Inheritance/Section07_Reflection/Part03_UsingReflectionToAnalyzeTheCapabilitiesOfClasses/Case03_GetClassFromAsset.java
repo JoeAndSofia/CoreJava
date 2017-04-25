@@ -4,7 +4,7 @@ import java.lang.reflect.Field;
 
 import VolumeI.Chapter05_Inheritance.eg.Employee;
 import VolumeI.Chapter05_Inheritance.eg.Manager;
-import basic.util.Basic;
+import basic.Basic;
 
 public class Case03_GetClassFromAsset extends Basic{
 

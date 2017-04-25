@@ -4,7 +4,7 @@ import java.util.Date;
 
 import VolumeI.Chapter05_Inheritance.eg.Employee;
 import VolumeI.Chapter05_Inheritance.eg.Manager;
-import basic.util.Basic;
+import basic.Basic;
 
 public class Case01_GetClass extends Basic{
 	

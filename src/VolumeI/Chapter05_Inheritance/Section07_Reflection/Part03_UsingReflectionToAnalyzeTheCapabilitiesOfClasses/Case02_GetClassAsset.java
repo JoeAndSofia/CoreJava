@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Date;
 
-import basic.util.Basic;
+import basic.Basic;
 
 public class Case02_GetClassAsset extends Basic{
 
