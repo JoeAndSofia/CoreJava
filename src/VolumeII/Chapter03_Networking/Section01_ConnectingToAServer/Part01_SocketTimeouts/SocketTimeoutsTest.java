@@ -16,7 +16,7 @@ public class SocketTimeoutsTest extends Basic{
 	
 	public static void main(String[] args){
 		try{
-			test02("baidu.com",0);
+			test02("baidu.com",90);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

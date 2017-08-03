@@ -30,7 +30,7 @@ public class ThreadEchoServer extends Basic{
 			while(true){
 				Socket incoming = s.accept();
 				pl("Spawning " + i);
-				Runnable r = new ThreadedEchoHandler(incoming);
+				Runnable r = new ThreadedEchoHandler(incoming, i);
 				Thread t = new Thread(r);
 				t.start();
 				pl(i++);
@@ -44,9 +44,11 @@ public class ThreadEchoServer extends Basic{
 class ThreadedEchoHandler extends Basic implements Runnable{
 
 	private Socket incoming;
+	private int index = 0;
 	
-	public ThreadedEchoHandler(Socket i){
-		incoming = i;
+	public ThreadedEchoHandler(Socket i, int index){
+		this.incoming = i;
+		this.index = index;
 	}
 	
 	@Override
@@ -64,12 +66,13 @@ class ThreadedEchoHandler extends Basic implements Runnable{
 				boolean done = false;
 				while(!done && in.hasNextLine()){
 					String line = in.nextLine();
+					pl(this.index+": "+line);
 					out.println("Echo: " + line);
 					if(line.trim().equalsIgnoreCase("bye"))done = true;
 				}
 			}finally{
 				incoming.close();
-				pl("server thread done");
+				pl("server thread " + this.index + " done");
 			}
 		}catch(IOException e){
 			e.printStackTrace();

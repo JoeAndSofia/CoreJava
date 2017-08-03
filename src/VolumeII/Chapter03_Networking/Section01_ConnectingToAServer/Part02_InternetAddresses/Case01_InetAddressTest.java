@@ -10,81 +10,109 @@ public class Case01_InetAddressTest extends Basic{
 
 	public static void main(String[] args){
 		try{
-//			String host = "www.baidu.com";		//2 addresses
-//			String host = "baidu.com";		//4 addresses
-//			String host = "developer.google.com";	//6 addresses
-//			String host = "google.com";		//1 address
-//			String host = "www.google.com";		//1 address
-//			String host = "maps.google.com";		//1 address
-//			String host = "www.google.com.hk";		//1 address
-//			test01(host);
-//			test02(host);
+			String host = null;
+			 host = "www.baidu.com";		//2 addresses
+//			 host = "baidu.com";		//4 addresses
+//			 host = "developer.google.com";	//6 addresses
+//			 host = "google.com";		//1 address
+//			 host = "www.google.com";		//1 address
+//			 host = "maps.google.com";		//1 address
+//			 host = "www.google.com.hk";		//1 address
+			test01(host);
 			
-			//*******************************************
+			pl("************************************************************************************");
 			
-			test03(new String[]{});
-			test03(new String[]{"www.baidu.com"});
+			test02(new String[]{host});
 			
-			//*******************************************
+			pl("************************************************************************************");
 			
-			
-			
+			test02(new String[]{});
 			
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
-	public static void printAddressV1(InetAddress address) throws UnsupportedEncodingException{
-		printAddressV01Impl01(address);
-		pl("-----------------");
-		printAddressV02Impl02(address);
-		pl("----------------------------------");
+	/**
+	 * print Internet Address 
+	 * @param host
+	 * @throws Exception
+	 */
+	public static void test01(String host) throws Exception{
+		InetAddress address = InetAddress.getByName(host);
+		printAddressV01(address);
+		pl("******************************************");
+		printAddressV02(address);
+		pl("******************************************");
+		printAddressV03(address);
+		pl("******************************************");
+		printAddressV04(host);
+		pl("******************************************");
+		printAddressLocal();
 	}
 	
-	public static void printAddressV01Impl01(InetAddress address){
+	/**
+	 * get ip address byte array
+	 * @param address
+	 */
+	public static void printAddressV01(InetAddress address){
 		byte[] addressBytes = address.getAddress();
 		pl("length: " + addressBytes.length);
 		for(byte b : addressBytes){
-			pl(b<0?(b+256):b);
+			pl((b<0?(b+256):b) + "(" + b + ")");
 		}
 	}
 
-	public static void printAddressV02Impl02(InetAddress address) throws UnsupportedEncodingException{
+	/**
+	 * get ip address
+	 * @param address
+	 * @throws UnsupportedEncodingException
+	 */
+	public static void printAddressV02(InetAddress address) throws UnsupportedEncodingException{
 		pl(new String(address.getHostAddress()));
 	}
-	
-	public static void test01(String host) throws Exception{
-		InetAddress address = InetAddress.getByName(host);
-		printAddressV1(address);
-	}
-	
-	public static void test02(String host) throws Exception{
-		InetAddress[] addressArr = InetAddress.getAllByName(host);
-		for(InetAddress address : addressArr){
-			printAddressV1(address);
-		}
-	}
-	
-	//*******************************************
-	
-	public static void printAddressV2(InetAddress address){
+
+	/**
+	 * InetAddress print case
+	 * @param address
+	 */
+	public static void printAddressV03(InetAddress address){
 		pl(address);
 		pl(address.getHostName());
 		pl(address.getHostAddress());
 	} 
 	
-	public static void test03(String[] args) throws UnknownHostException{
+	/**
+	 * get all Internet Address name by host
+	 * @param host
+	 * @throws Exception
+	 */
+	public static void printAddressV04(String host) throws Exception{
+		InetAddress[] addressArr = InetAddress.getAllByName(host);
+		for(InetAddress address : addressArr){
+			printAddressV01(address);
+			printAddressV02(address);
+			pl("---------------------");
+		}
+	}
+	
+	
+	public static void printAddressLocal() throws UnknownHostException, UnsupportedEncodingException{
+		InetAddress localHostAddress = InetAddress.getLocalHost();
+		printAddressV02(localHostAddress);
+	}
+	
+	public static void test02(String[] args) throws UnknownHostException, UnsupportedEncodingException{
 		if(args.length > 0){
 			for(String host : args){
 				InetAddress[] addresses = InetAddress.getAllByName(host);
 				for(InetAddress a : addresses){
-					printAddressV2(a);
+					printAddressV02(a);
 				}	
 			}
 		}else{
 			InetAddress localHostAddress = InetAddress.getLocalHost();
-			printAddressV2(localHostAddress);
+			printAddressV02(localHostAddress);
 		}
 	}
 }
